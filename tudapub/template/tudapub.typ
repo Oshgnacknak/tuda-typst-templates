@@ -653,6 +653,7 @@
     #counter(heading).update(0)
 
     = Appendix <appendix>
+    #set heading(outlined: false)
     #appendix
   ]
 
