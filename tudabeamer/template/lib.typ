@@ -33,7 +33,7 @@
 
 #let title-font(..args) = {
   set par(leading: 0.1in)
-  set text(font: "roboto", fallback: false, weight: "black", size: 42pt)
+  set text(font: "roboto", fallback: false, weight: "black", size: 40pt)
   text(..args)
 }
 
@@ -97,7 +97,7 @@
       block(
         height: 1.99in - margin.top,
         below: 0.24in,
-        width: 100% - 2in,
+        width: 100%,
         align(bottom)[
           #slide-title-font(upper(if title != auto { title } else {
             utils.display-current-heading(depth: self.slide-level)
@@ -126,6 +126,8 @@
       grid.cell(align: top + center, subtitle-font(info.subtitle)),
     )
   }
+  let args = (self,) + args.pos()
+  let self = utils.merge-dicts(..args)
   touying-slide(self: self, body)
 })
 
